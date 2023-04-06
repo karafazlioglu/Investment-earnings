@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.text.*;
 public class Main {
     public static void main(String[] args)
     {
@@ -15,15 +16,16 @@ public class Main {
             System.out.println("Enter the closing price for day: "
             + day + " ( any negative value to leave ): ");
             closingPrice = scan.nextDouble();
+            DecimalFormat df = new DecimalFormat("0.00");
             if (closingPrice < 0.0) break;
             double earnings = closingPrice - buyingPrice;
             if (earnings > 0)
             {
                 System.out.println("After day " + day + ", you earned "
-                + earnings + " per share.");
+                + df.format(earnings) + " per share.");
             } else if (earnings < 0.0) {
                 System.out.println("After day " + ", you lost "
-                + (-earnings) + " per share.");
+                + df.format(-earnings) + " per share.");
             }
             else {
                 System.out.println("After day " + day + ", you have " +
